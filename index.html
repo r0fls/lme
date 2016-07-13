@@ -8,10 +8,19 @@
 	<body>
 		<div id='editor' contenteditable="true">
 		</div>
-		<div id='render'>
+		<div id='renderer'>
 		</div>
 	</body>
 	<script>
+                var markdown = require('markdown').markdown
+                document.getElementById("editor").
+			addEventListener("keyup", render);
+		function render() {
+			document.getElementById("renderer").
+				innerHTML = markdown.toHTML(this.innerHTML)
+			//document.getElmentById("editor")
+			//alert('hello world')
+		}
 		require('./renderer.js')
 	</script>
 </html>
